@@ -46,6 +46,7 @@
                             <th>Minimal</th>
                             <th>maximal</th>
                             <th>Harga</th>
+                            <th>Tools</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +64,10 @@
                             <td>{{ $row->min }}</td>
                             <td>{{ $row->max }}</td>
                             <td>Rp {{number_format($row->harga)}}</td>
+                            <td>
+                                <a href="{{route('paket.detail', $row->id) }}" class="btn btn-info">Detail</a>
+                            
+                            </td>
 
                             
                         </tr>

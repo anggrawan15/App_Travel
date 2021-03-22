@@ -60,7 +60,7 @@
 
         <div class="container">
             <form action= "{{ route('payment.simpan') }}" id="form-submit" onfocus="paySubmit()" method="post" >
-            @csrf
+                @csrf
             
                 <input type="hidden" class="form-control" value="{{ $payment->id }}" name="order_id" required>
 

@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+<br>
 <!-- ini bagian baru -->
     <div class="container">
         <div class="row">
@@ -22,14 +23,14 @@
                     <div class="card-body">
                         <div class="row justify-content-center">
                             <div class="col-8">
-                            <h5 class="text-secondary"><strong>Nama</strong></h5>
-                            <p>{{ $restod->nama }}</p>
-                            <hr>
-                            <h5 class="text-secondary"><strong>Lokasi</strong></h5>
-                            <p>{{ $restod->lokasi }}</p>
-                            <hr>
-                            <h5 class="text-secondary"><strong>Deskripsi</strong></h5>
-                            <p>{{ $restod->deskripsi }}</p>
+                                <h5 class="text-secondary"><strong>Nama</strong></h5>
+                                <p>{{ $restod->nama }}</p>
+                                <hr>
+                                <h5 class="text-secondary"><strong>Lokasi</strong></h5>
+                                <p>{{ $restod->lokasi }}</p>
+                                <hr>
+                                <h5 class="text-secondary"><strong>Deskripsi</strong></h5>
+                                <p>{{ $restod->deskripsi }}</p>
                             </div>
                         </div>
                     </div>

@@ -27,12 +27,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mr-auto">
                 @if(auth()->guard('customer')->check())
-                    <li class="nav-item active">
-                        <a href="{{route('customer.home')}}" class="nav-link">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a href="{{route('customer.home')}}" class="nav-link">Home</a>
                     </li>
                 @else
-                    <li class="nav-item active">
-                        <a href="{{url('/')}}" class="nav-link">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a href="{{url('/')}}" class="nav-link">Home</a>
                     </li>
                 @endif
                     <li class="nav-item">
@@ -86,9 +86,9 @@
 
 
 
-    <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
     <script src="{{ asset('bootstrap-4.5.0-dist/js/jquery.js') }}"></script>
-    <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script> -->
 </body>
     
 </html>

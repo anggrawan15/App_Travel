@@ -7,16 +7,15 @@
 @section('content')
 
 <div class="container">
-    
+
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
-
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
     @endif
 
-    <div class="text-text-light mb-2">
+    <div class="text-light mb-2">
         <a href="{{route('paket.create')}}" class="btn btn-primary btn-md">Kembali</a>
     </div>
 
@@ -25,6 +24,7 @@
         <div class="col-md-6">
         
             <div class="card">
+            <!-- card -->
                 <div class="card-header">
                     <h3 class="card-title">
                         Wisata
@@ -32,22 +32,23 @@
                 </div>
 
                 <div class="card-body">
-                    
+                    <!-- card body -->
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead class="thead-light">
                                 <tr>
                                     <th>Gambar</th>
                                     <th>Nama Wisata</th>
-                                    <th>jumlah</th>
-                                    <th>Aksi</th>
+                                    <th>Jumlah</th>
+                                    <th>Tools</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 @forelse($cartsw as $row)
                                 <tr>
-                                    <td><img src="{{ asset('storage/wisatas/' . $row['wisata_gambar']) }}" alt="{{ $row['wisata_nama']}}" width="100px" height="100px" >
+                                    <td>
+                                        <img src="{{ asset('storage/wisatas/' . $row['wisata_gambar']) }}" alt="{{ $row['wisata_nama']}}" width="100px" height="100px" >
                                     </td>
 
                                     <td>{{$row['wisata_nama']}}</td>
@@ -71,12 +72,16 @@
                             
                         </table>
                     </div>
-                        
+                <!-- end card body -->
                 </div>
+            <!-- end card -->
             </div>
+
             <br>
+
             <!-- ini untuk Hotel -->
             <div class="card">
+            <!-- card -->
                 <div class="card-header">
                     <h3 class="card-title">
                         Hotel
@@ -84,21 +89,25 @@
                 </div>
 
                 <div class="card-body">
+                <!-- card body -->
                     <div class="table-responsive">
                         <table class="table table-hover">
+
                             <thead class="thead-light">
                                 <tr>
                                     <th>Gambar</th>
                                     <th>Nama Hotel</th>
-                                    <th>jumlah</th>
-                                    <th>Aksi</th>
+                                    <th>Jumlah</th>
+                                    <th>Tools</th>
                                 </tr>
                             </thead>
 
                             <tbody>
                                 @forelse($cartsh as $row)
+
                                 <tr>
-                                    <td><img src="{{ asset('storage/hotels/'. $row['hotel_gambar'])}}" alt="{{ $row['hotel_nama']}}" width="100px" height="100px" >
+                                    <td>
+                                        <img src="{{ asset('storage/hotels/'. $row['hotel_gambar'])}}" alt="{{ $row['hotel_nama']}}" width="100px" height="100px" >
                                     </td>
 
                                     <td>{{$row['hotel_nama']}}</td>
@@ -111,13 +120,10 @@
                                         </form>
                                     
                                     </td>
-                                
                                 </tr>
                                 @empty
                                 <tr>
-                                    
-                                    <td colspan="5" class="text-center">Tidak ada data</td>
-                                    
+                                    <td colspan="6" class="text-center">Tidak ada data</td>
                                 </tr>
                                 
                                 @endforelse
@@ -125,12 +131,15 @@
                             
                         </table>
                     </div>
-                        
+                <!-- end card body -->
                 </div>
+            <!-- end card -->
             </div>
+
             <br>
             <!-- ini untuk Resto -->
             <div class="card">
+            <!-- card  -->
                 <div class="card-header">
                     <h3 class="card-title">
                         Restorand
@@ -138,8 +147,10 @@
                 </div>
 
                 <div class="card-body">
+                <!-- card body -->
                     <div class="table-responsive">
                         <table class="table table-hover">
+
                             <thead class="thead-light">
                                 <tr>
                                     <th>Gambar</th>
@@ -151,8 +162,11 @@
 
                             <tbody>
                                 @forelse($cartsr as $row)
+
                                 <tr>
-                                    <td><img src="{{ asset('storage/restos/'. $row['resto_gambar'])}}" alt="{{ $row['resto_nama']}}" width="100px" height="100px" >
+
+                                    <td>
+                                        <img src="{{ asset('storage/restos/'. $row['resto_gambar'])}}" alt="{{ $row['resto_nama']}}" width="100px" height="100px" >
                                     </td>
 
                                     <td>{{$row['resto_nama']}}</td>
@@ -163,7 +177,6 @@
                                             @csrf
                                             <button class="btn btn-danger">hapus</button>
                                         </form>
-                                    
                                     </td>
                                 
                                 </tr>
@@ -177,29 +190,31 @@
                             
                         </table>
                     </div>
-                        
+                <!-- end card body -->
                 </div>
+            <!-- end card -->
             </div>
 
             <br>
 
-
-
-            <!-- ini adalah bagian row -->
+        <!-- ini adalah bagian row -->
         </div>
 
         <div class="col-md-6">
+        <!-- awal row -->
             <div class="card">
+            <!-- card -->
                 <div class="card-header">
                     <h3 class="card-title">
                         Paket Tour
                     </h3>
                 </div>
+
                 <form action="{{ route('paket.simpan') }}" method="POST" enctype="multipart/form-data" novalidate="novalidate">
-                    @csrf
+                @csrf
 
                     <div class="card-body">
-
+                    <!-- card body -->
                         <div class="form-group">
                             <label for="nama">Nama Paket Wisata</label>
                             <input type="text" name="nama" class="form-control" value="{{ old('nama') }}" required>
@@ -233,15 +248,14 @@
                         <div class="form-group">
                             <button class="btn btn-primary btn-sm">Simpan</button>
                         </div>
+                    <!-- end card body -->
                     </div>
                 </form>
-
+            <!-- end card -->
             </div>
-
+        <!-- end row -->
         </div>
     </div>
-   
-
 </div>
 
     

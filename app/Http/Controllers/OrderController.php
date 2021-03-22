@@ -34,11 +34,6 @@ class OrderController extends Controller
         // Enable 3D-Secure
         Config::$is3ds = true;
 
-        // $notif = new Notification();
-        // $transaction = $notif->transaction_status;
-        // $type = $notif->payment_type;
-        // $order_id = $notif->order_id;
-        // $fraud = $notif->fraud_status;
     }
 
 
@@ -233,9 +228,8 @@ class OrderController extends Controller
         // dd($snapToken);
         // return redirect(route('lihatdata'))->with('nama', $snapToken);
 
-       
-
         // dd(['status', $snapToken]);
+        
     }
 
     // public function lihatdata(){

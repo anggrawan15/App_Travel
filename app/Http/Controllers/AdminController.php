@@ -50,8 +50,127 @@ class AdminController extends Controller
     }
 
     public function daftarOrder(){
-        $dafOrder = Order::orderBy('created_at','DESC')->with(['paket'])->paginate(50);
-        return view('admins.daftar-order', compact('dafOrder'));
+        // $dafOrder = Order::orderBy('created_at','DESC')->with(['paket'])->paginate(50);
+
+        $dafpay = Order::orderBy('created_at','DESC')->with(['payment'])->where('status', 2)->get();
+
+        $updatePay = Payment::orderBy('created_at','DESC')->get();
+
+        
+        // $payment = Payment::orderBy('created_at','DESC')->paginate(50);
+
+        foreach($updatePay as $upPay){
+
+            try {
+
+                $status = Transaction::status($upPay->invoice_order);
+                $dataPay = array($status);
+
+                // $apa = json_encode($file);
+                // $ini = Json_decode($apa);
+            } catch (Exception $e) {
+                echo $e->getMessage();
+                die();
+            }
+
+            foreach($dataPay as $dPay){
+                // echo "$val->order_id<br>";
+                // echo $pay->invoice_order
+                $ubahpay=Payment::find($upPay->id);
+
+                if ($upPay->status != $dPay->transaction_status){
+                    $ubahpay->update([
+                        'status' => $dPay->transaction_status,
+                    ]);
+                    // echo $pay->status;
+                }
+                // echo $pay->status;
+            }
+            // echo "$val->order_id<br>";
+            
+            // if ($pay)
+            // dd($file);
+        }
+
+        foreach($dafpay as $dataOrd){
+
+            $ubahOrder= Order::find($dataOrd->id);
+
+            foreach($dataOrd->payment as $dtorPay){
+                // echo $row->status;
+                if($dtorPay->status == 'pending'){
+                    $ubahOrder->update([
+                        'status' => 2,
+                    ]);
+                }elseif($dtorPay->status == 'expire'){
+                    $ubahOrder->update([
+                        'status' => 3,
+                    ]);
+                }elseif($dtorPay->status == 'cancel'){
+                    $ubahOrder->update([
+                        'status' => 3,
+                    ]);
+                }elseif($dtorPay->status == 'deny'){
+                    $ubahOrder->update([
+                        'status' => 3,
+                    ]);
+                }elseif($dtorPay->status == 'capture'){
+                    $ubahOrder->update([
+                        'status' => 4,
+                    ]);
+                }
+
+
+            }
+            // echo "$hasil<br>";
+        
+        }
+        // echo "$val->order_id<br>";
+
+        $dtOrderpay = Order::orderBy('created_at','DESC')->paginate(50);
+        return view('admins.daftar-order', compact('dtOrderpay'));
+
+
+
+
+        
+
+            
+        
+
+        
+
+
+        
+
+        
+        
+
+        // $payment = Payment::orderBy('created_at','DESC')->value('status');
+        // $payment= Payment::value('status');
+
+        // $chekPay1 = Order::orderBy('created_at','DESC');
+
+        // $chekPay = Payment::value('invoice_order');
+        
+        
+
+
+        
+       
+        
+        
+       
+
+
+        // return view('admins.daftar-order', compact('dafOrder'));
+        // dd($dafOrder);
+        
+        // dd($payment);
+        // dd($pay);
+    
+
+
     }
     public function orderMemesan(){
         $orderPesan = Order::orderBy('created_at','DESC')->where('status', 0)->with(['paket'])->paginate(50);

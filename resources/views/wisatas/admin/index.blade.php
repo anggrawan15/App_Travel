@@ -65,10 +65,10 @@
                                     <a href="{{ route('wisata.show', $row->id) }}" class="btn btn-primary btn-sm">Detail</a>
                                     <a href="{{ route('wisata.edit', $row->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="{{ route('wisata.destroy', $row->id) }}" method="post">
-                                    @csrf
-                                    @method('DELETE')                  
-                                    <button class="btn btn-danger btn-sm">Hapus</button>
-                                </form>
+                                        @csrf
+                                        @method('DELETE')                  
+                                        <button class="btn btn-danger btn-sm" onclick="return confirm('Yakin Ingin Membatalkan Wisata ini?')">Hapus</button>
+                                    </form>
                                 </div>
                                 
                             </td>

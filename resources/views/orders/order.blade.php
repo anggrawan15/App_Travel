@@ -96,7 +96,7 @@
 
                                         <form action="{{ route('order.batal', $row->id)}}" method="post">
                                         @csrf
-                                            <button class="btn btn-danger"onclick="return confirm('Yakin Ingin Membatalkan Order ini?')">Batal</button>
+                                            <button class="btn btn-danger" onclick="return confirm('Yakin Ingin Membatalkan Order ini?')">Batal</button>
                                         </form>
                                     </div>
                                 

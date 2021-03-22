@@ -34,7 +34,7 @@
                             </thead>
                             <tbody>
                                 @php $no = 1; @endphp
-                                @forelse($dafOrder as $row)
+                                @forelse($dtOrderpay as $row)
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td>{{$row->invoice}}</td>
@@ -65,7 +65,7 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <!-- MEMBUAT LINK PAGINASI JIKA ADA -->
-                        {!! $dafOrder->links() !!}
+                        {!! $dtOrderpay->links() !!}
                         </div>
                     </div>
 

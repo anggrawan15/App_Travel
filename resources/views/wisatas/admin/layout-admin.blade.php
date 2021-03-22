@@ -28,7 +28,7 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</a>
+                        <a href="{{ route('admin.index') }}" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('wisata.index') }}" class="nav-link active">Wisata<span class="sr-only">(current)</span></a>
@@ -45,13 +45,24 @@
                 </ul>
 
                 <ul class="navbar-nav">
+                    @if(auth()->guard('customer')->check())
                     <li class="nav-item">
-                        <strong><a href="#" class="nav-link">Login</a></strong>
-                        
+                        <strong>
+                        <a href="{{route('customer.logout')}}" class="nav-link">Logout</a>
+                        </strong>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <strong>
+                        <a href="{{ route('customer.loginForm') }}" class="nav-link">Login</a>
+                        </strong>
                     </li>
                     <li class="nav-item">
-                        <strong><a href="#" class="nav-link">Register</a></strong>
+                        <strong>
+                        <a href="{{ route('customer.registerForm')}}" class="nav-link">Register</a>
+                        </strong>
                     </li>
+                    @endif
                 </ul>
 
             </div>
@@ -60,27 +71,19 @@
 </div>
 </div>
 
-    
-
 <br>
-    
-    
+
 @yield('content')
 
-    
-    
 <br>
 <div class="container">
-    
+    <br>
+        <h2 class="text-center"><span class="badge badge-pill badge-secondary">@SetilnyaLombok</span></h2>
+    <br>
 </div>
-
-
-
 
     <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
     <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script>
-    
-    
     
 </body>
     

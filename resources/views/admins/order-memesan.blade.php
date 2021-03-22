@@ -47,7 +47,12 @@
                                             <!-- <form action="{{route('admin.view.order', $row->id)}}" method="get">
                                                 @csrf
                                                 <button class="btn btn-outline-info">Detail</button>
-                                            </form> -->
+                                            </form> --> 
+                                            <form action="{{route('admin.view.order', $row->id)}}" method="get">
+                                                @csrf
+                                                <button class="btn btn-outline-info">Detail</button>
+                                            </form>
+
                                         
                                         
                                         </td>

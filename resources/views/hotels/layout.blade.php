@@ -80,9 +80,9 @@
 
 
 
-    <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
     <script src="{{ asset('bootstrap-4.5.0-dist/js/jquery.js') }}"></script>
-    <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script> -->
 </body>
     
 </html>

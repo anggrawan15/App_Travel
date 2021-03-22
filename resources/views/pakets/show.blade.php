@@ -45,20 +45,23 @@
                                         <div class="card-body">
                                             <h6 class="text-secondary"><strong>Wisata</strong></h6>
                                             @foreach($paketd->wisataItem as $row)
-                                            <p>{{ $row->wisata->nama}} <a href="{{route('wisata.detail', $row->wisata_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p>
+                                            <p>{{ $row->wisata->nama}}
+                                            <!-- <a href="{{route('wisata.detail', $row->wisata_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p> -->
                                             <hr>
                                             @endforeach
 
                                             <h6 class="text-secondary"><strong>Hotel</strong></h6>
                                             @foreach($paketd->hotelItem as $row)
                                             <hr>
-                                            <p>{{ $row->hotel->nama}} <a href="{{route('hotel.detail', $row->hotel_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p>
+                                            <p>{{ $row->hotel->nama}}
+                                            <!-- <a href="{{route('hotel.detail', $row->hotel_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p> -->
                                             @endforeach
 
                                             <h6 class="text-secondary"><strong>Restoran</strong></h6>
                                             @foreach($paketd->restoItem as $row)
                                             <hr>
-                                            <p>{{ $row->resto->nama}} <a href="{{route('resto.detail', $row->resto_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p>
+                                            <p>{{ $row->resto->nama}}
+                                            <!-- <a href="{{route('resto.detail', $row->resto_id) }}" class="btn btn-outline-info btn-sm text-right">lihat</a></p> -->
                                             @endforeach
                                         </div>
                                     </div>

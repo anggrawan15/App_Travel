@@ -27,7 +27,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">Home</span></a>
+                        <a href="{{ route('admin.index') }}" class="nav-link">Home</span></a>
                     </li>
                     <li class="nav-item Active">
                         <a href="{{ route('wisata.index') }}" class="nav-link">Wisata</a>
@@ -42,6 +42,27 @@
                         <a href="{{ route('paket.index') }}" class="nav-link">Paket</a>
                     </li>
                 </ul>
+
+                <ul class="navbar-nav">
+                    @if(auth()->guard('customer')->check())
+                    <li class="nav-item">
+                        <strong>
+                        <a href="{{route('customer.logout')}}" class="nav-link">Logout</a>
+                        </strong>
+                    </li>
+                    @else
+                    <li class="nav-item">
+                        <strong>
+                        <a href="{{ route('customer.loginForm') }}" class="nav-link">Login</a>
+                        </strong>
+                    </li>
+                    <li class="nav-item">
+                        <strong>
+                        <a href="{{ route('customer.registerForm')}}" class="nav-link">Register</a>
+                        </strong>
+                    </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </nav>
@@ -49,21 +70,16 @@
 </div>
 <br>
     
-    
 @yield('content')
-
 
 <br>
 <div class="container">
-    
+    <br>
+        <h2 class="text-center"><span class="badge badge-pill badge-secondary">@SetilnyaLombok</span></h2>
+    <br>
 </div>
 
-    
-
-
-
-
-
+ 
     <link rel="stylesheet" href="{{ asset('bootstrap-4.5.0-dist/css/bootstrap.css') }}">
     <script src="{{ asset('bootstrap-4.5.0-dist/js/bootstrap.js') }}"></script>
 </body>

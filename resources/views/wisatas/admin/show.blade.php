@@ -16,7 +16,6 @@
                         Wisata {{ $wisata->nama}}
                         <a href="{{ route('wisata.edit', $wisata->id) }}" class="btn btn-warning btn-sm float-right">Ubah</a>
                     </h4>
-                    
                 </div>
             
                 <div class="card-header">
